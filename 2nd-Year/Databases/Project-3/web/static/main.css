@@ -1,0 +1,15 @@
+td {
+    text-align: center;
+    padding: 2px;
+}
+
+table {
+    border: 2px solid;
+    border-collapse: collapse;
+}
+
+td,
+td {
+    border: 2px solid;
+    padding: 10px;
+}

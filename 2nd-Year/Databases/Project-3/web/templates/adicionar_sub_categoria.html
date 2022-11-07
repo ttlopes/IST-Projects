@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Adicionar sub categoria</title>
+        <link rel="stylesheet" href="/~ist102139/app.cgi/static/main.css" />
+    </head>
+    <body>
+        <h1>Adicionar sub categoria</h1>
+        <form action="adicionar_categoria/update" method="post">
+            <p>Nome da Categoria: <input type="text" name="nome" /></p>
+            <input
+                type="radio"
+                id="categoria_simples"
+                name="cat"
+                value="categoria_simples"
+                checked="checked"
+            />
+            <label for="categoria_simples">Categoria Simples</label>
+            <input
+                type="radio"
+                id="super_categoria"
+                name="cat"
+                value="super_categoria"
+            />
+            <label for="super_categoria">Super Categoria</label>
+            {% if cursor %}
+                <p>Categoria Pai: <select name="categoria_pai">
+                    {% for record in cursor %}
+                        <option value="{{ record[0] }}">{{ record[0] }}</option>
+                    {% endfor %}
+                </select></p>
+            {% endif %}
+            <p><input type="submit" value="Confirmar" /></p>
+        </form>
+    </body>
+</html>

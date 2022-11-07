@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>IVM's</title>
+        <link rel="stylesheet" href="/~ist1102139/app.cgi/static/main.css" />
+    </head>
+    <body>
+        {% if cursor %}
+        <h1>Eventos IVM</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Unidades</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in cursor %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Erro: ao obter dados da base de dados!</p>
+        {% endif %}
+    </body>
+</html>
